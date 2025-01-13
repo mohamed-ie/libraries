@@ -1,5 +1,6 @@
 package com.compose.utils.app_event
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
@@ -11,6 +12,7 @@ import kotlin.test.assertTrue
 
 class DefaultAppEventInvokerTest {
     private lateinit var subject: AppEventInvoker
+    @OptIn(ExperimentalCoroutinesApi::class)
     private val testDispatcher = UnconfinedTestDispatcher()
     private val testScope = TestScope(testDispatcher)
 
@@ -20,8 +22,7 @@ class DefaultAppEventInvokerTest {
     }
 
     @Test
-    fun `when event sent, then event received`() = runTest {
-
+    fun `when event sent then event received`() = runTest {
         val events = mutableListOf<Any>()
 
         backgroundScope.launch(testDispatcher) {

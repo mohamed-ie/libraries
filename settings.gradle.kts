@@ -13,5 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild("build-logic")
+
 rootProject.name = "libraries"
 include(":compose:compose_utils_app-event")

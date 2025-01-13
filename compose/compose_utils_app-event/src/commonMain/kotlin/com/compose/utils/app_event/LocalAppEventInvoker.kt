@@ -18,6 +18,7 @@ package com.compose.utils.app_event
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import kotlinx.coroutines.flow.filterIsInstance
 
@@ -25,7 +26,7 @@ import kotlinx.coroutines.flow.filterIsInstance
  * CompositionLocal that provides the current [AppEventInvoker] instance.
  * Defaults to `null` if no instance is provided in the composition tree.
  */
-val LocalAppEventInvoker = compositionLocalOf<AppEventInvoker?> { null }
+public val LocalAppEventInvoker: ProvidableCompositionLocal<AppEventInvoker?> = compositionLocalOf { null }
 
 /**
  * Observes events of a specific type emitted by the [AppEventInvoker].
@@ -38,7 +39,7 @@ val LocalAppEventInvoker = compositionLocalOf<AppEventInvoker?> { null }
  * @param onEvent A callback invoked for each emitted event of type [T].
  */
 @Composable
-inline fun <reified T : Any> ObserveAppEvents(
+public inline fun <reified T : Any> ObserveAppEvents(
     invoker: AppEventInvoker? = LocalAppEventInvoker.current,
     noinline onEvent: (T) -> Unit
 ) {

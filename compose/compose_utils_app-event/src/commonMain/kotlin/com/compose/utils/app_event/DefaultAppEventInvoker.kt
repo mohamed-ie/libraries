@@ -17,8 +17,10 @@
 package com.compose.utils.app_event
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
@@ -32,7 +34,7 @@ import kotlinx.coroutines.launch
  * @property coroutineScope The [CoroutineScope] used for launching coroutines to emit events.
  *                          Defaults to [MainScope].
  */
-open class DefaultAppEventInvoker(
+public open class DefaultAppEventInvoker(
     private val coroutineScope: CoroutineScope = MainScope()
 ) : AutoCloseable, AppEventInvoker {
 
@@ -44,7 +46,7 @@ open class DefaultAppEventInvoker(
     /**
      * Exposed shared flow of events for observers to collect.
      */
-    override val event = _event.asSharedFlow()
+    override val event: Flow<Any> = _event.asSharedFlow()
 
     /**
      * Sends a new event to the flow.
@@ -52,7 +54,7 @@ open class DefaultAppEventInvoker(
      * @param event The event to be emitted.
      * @return A [kotlinx.coroutines.Job] representing the coroutine that emits the event.
      */
-    override fun send(event: Any) = coroutineScope.launch { _event.emit(event) }
+    override fun send(event: Any): Job = coroutineScope.launch { _event.emit(event) }
 
     /**
      * Closes the invoker by cancelling its [CoroutineScope].
