@@ -70,7 +70,6 @@ A default implementation of `AppEventInvoker` using `SharedFlow`.
 
 ### Composable Functions
 
-- `ObserveAppEvents`: Collects all emitted events.
 - `ObserveAppEvents<T>`: Collects events of a specific type.
 
 ## License
