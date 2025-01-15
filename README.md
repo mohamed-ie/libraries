@@ -4,9 +4,9 @@ This repository contains a collection of **custom libraries** designed to simpli
 
 ## Libraries Overview
 
-### 1. App Event Invoker
+### 1. App Event
 
-The **App Event Invoker** is a powerful utility for managing **application-wide events**. It enables event-driven communication between different parts of your app in a thread-safe and efficient manner.
+The **App Event** is a utility for managing **application-wide events**. It enables event-driven communication between different parts of your app in a thread-safe and efficient manner.
 
 #### Features:
 - **Event Emission and Observation**: Emit events using `AppEventInvoker` and observe them across your app.
