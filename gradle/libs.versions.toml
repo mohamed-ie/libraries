@@ -5,7 +5,7 @@ kotlin = "2.1.0"
 android-minSdk = "24"
 android-compileSdk = "35"
 android-targetSdk = "34"
-jdk = "8"
+jdk = "11"
 kotlinx-coroutines = "1.10.1"
 kotlinx-serialization = "1.8.0"
 
