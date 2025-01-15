@@ -1,7 +1,6 @@
+# App Event
 
-# App Event Invoker Library
-
-The **App Event Invoker** library provides a robust and flexible way to emit and observe application-wide events. Designed for Kotlin Multiplatform projects, it enables seamless event-driven communication in Compose-based applications.
+The **App Event** provides a robust and flexible way to emit and observe application-wide events. Designed for Kotlin Multiplatform projects, it enables seamless event-driven communication in Compose-based applications.
 
 ## Features
 
@@ -17,7 +16,7 @@ Add the following dependencies to your project:
 ### Gradle
 ```kotlin
 // Add this to your commonMain dependencies
-implementation("io.github.mohamed-ie:compose-utils-app-event:1.0.0")
+implementation("io.github.mohamed-ie:compose-utils-app-event:<version>")
 ```
 
 ## Usage
@@ -39,14 +38,6 @@ appEventInvoker.send(MyEvent("Hello World"))
 ### 3. Observe Events
 
 #### Observe All Events
-
-```kotlin
-ObserveAppEvents(invoker = appEventInvoker) { event ->
-    println("Received event: $event")
-}
-```
-
-#### Observe Specific Event Types
 
 ```kotlin
 ObserveAppEvents<MyEvent>(invoker = appEventInvoker) { event ->
@@ -85,11 +76,3 @@ A default implementation of `AppEventInvoker` using `SharedFlow`.
 ## License
 
 This library is licensed under the [Apache License 2.0](../../LICENSE).
-
-## Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the library.
-
-## Contact
-
-For questions or support, please reach out to [Mohamed Ibrahim El Sayed Mostafa](mailto:mohamed@example.com).
