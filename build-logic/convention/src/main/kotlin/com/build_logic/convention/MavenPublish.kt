@@ -29,12 +29,16 @@ fun Project.configureMavenPublish() {
             developers {
                 developer {
                     id = "mohamed-ie"
-                    name = "Mohamed Ibrahim El Sayed Mostafa"
+                    name = "Mohamed Ibrahim"
                     url = "https://github.com/mohamed-ie"
                 }
             }
 
-            scm { url = "https://maven.pkg.github.com/mohamed-ie/libraries" }
+            scm {
+                url = "https://github.com/mohamed-ie/libraries/"
+                connection = "scm:git:git://github.com/mohamed-ie/libraries.git"
+                developerConnection = "scm:git:ssh://git@github.com/mohamed-ie/libraries.git"
+            }
         }
     }
 }
