@@ -36,7 +36,8 @@ mavenPublishing {
 
     pom {
         name = "EventBus Composse"
-        description = "The EventBus library provides a mechanism to emit and observe application-wide events in a thread-safe and flexible manner."
+        description =
+            "The EventBus library provides a mechanism to emit and observe application-wide events in a thread-safe and flexible manner."
         inceptionYear = "2025"
     }
 }
