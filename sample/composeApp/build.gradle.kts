@@ -8,11 +8,11 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
@@ -39,19 +39,23 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
 
-        commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.compose.utils.app.event)
+        commonMain{
+            kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+            dependencies {
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(libs.androidx.lifecycle.viewmodel.compose)
+                implementation(libs.androidx.lifecycle.runtime.compose)
+                implementation(libs.compose.utils.app.event)
+                implementation(projects.uistate.uistate)
 
-            implementation(libs.androidx.navigation.compose)
-            implementation(libs.kotlinx.serialization.json)
+                implementation(libs.androidx.navigation.compose)
+                implementation(libs.kotlinx.serialization.json)
+            }
         }
 
         desktopMain.dependencies {
@@ -62,11 +66,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.mohammedie.project"
+    namespace = "io.github.mohamed_ie.sample"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.mohammedie.project"
+        applicationId = "io.github.mohamed_ie.sample"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
@@ -89,16 +93,23 @@ android {
 }
 
 dependencies {
+    add("kspCommonMainMetadata",projects.uistate.uistateCompiler)
     debugImplementation(compose.uiTooling)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().all {
+    if(name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 }
 
 compose.desktop {
     application {
-        mainClass = "com.mohammedie.project.MainKt"
+        mainClass = "io.github.mohamed_ie.sample.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.mohammedie.project"
+            packageName = "io.github.mohamed_ie.sample"
             packageVersion = "1.0.0"
         }
     }
