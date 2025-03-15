@@ -1,13 +1,6 @@
-package com.mohammedie.project
+package io.github.mohamed_ie.sample
 
 import androidx.compose.material.SnackbarDuration
-import androidx.lifecycle.ViewModel
-import com.compose.utils.app_event.AppEventInvoker
-import com.compose.utils.app_event.DefaultAppEventInvoker
-import com.mohammedie.project.di.AppServiceLocator
-import kotlin.time.Duration
-
-class AppViewModel() : BaseViewModel()
 
 sealed interface AppEvent {
     data class ShowSnackbar(
@@ -16,5 +9,4 @@ sealed interface AppEvent {
         val duration: SnackbarDuration = actionLabel?.let { SnackbarDuration.Indefinite } ?: SnackbarDuration.Short,
         val action: (() -> Unit)? = null
     ) : AppEvent
-
 }

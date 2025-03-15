@@ -1,4 +1,4 @@
-package com.mohammedie.project
+package io.github.mohamed_ie.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -1,4 +1,4 @@
-package com.mohammedie.project.home
+package io.github.mohamed_ie.sample.home.state
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,31 +9,26 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import io.github.mohamed_ie.sample.home.HomeUiState
 
 @Composable
-fun HomeScreen(
-    result: String?,
-    transalte: () -> Unit
+fun SuccessState(
+    uiState: HomeUiState.Success,
+    translate: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        
         Text(
-            text = "From the river to the sea, Palestine will be free",
+            text = uiState.result,
             style = MaterialTheme.typography.h6
         )
 
-        result?.let {
-            Text(
-                text = it,
-                style = MaterialTheme.typography.h6
-            )
-        }
-
-        Button(onClick = transalte) {
-            Text(text = "Transalte")
+        Button(onClick = translate) {
+            Text(text = "Translate")
         }
     }
 }

@@ -1,5 +1,6 @@
-package com.mohammedie.project
+package io.github.mohamed_ie.sample
 
+import io.github.mohamed_ie.sample.Platform
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {

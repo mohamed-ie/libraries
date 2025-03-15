@@ -1,4 +1,4 @@
-package com.mohammedie.project.navigation
+package io.github.mohamed_ie.sample.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mohammedie.project.home.HomeRoute
+import io.github.mohamed_ie.sample.home.HomeRoute
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
@@ -14,7 +14,7 @@ import kotlin.reflect.KClass
 data object HomeScreen
 
 @Composable
-fun SmapleNavHost(
+fun SampleNavigation(
     modifier: Modifier = Modifier,
     startDestination: KClass<*> = HomeScreen::class,
     navHostController: NavHostController = rememberNavController()

@@ -1,4 +1,4 @@
-package com.mohammedie.project
+package io.github.mohamed_ie.sample
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -8,7 +8,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.compose.utils.app_event.LocalAppEventInvoker
 import com.compose.utils.app_event.ObserveAppEvents
-import com.mohammedie.project.navigation.SmapleNavHost
+import io.github.mohamed_ie.sample.navigation.SampleNavigation
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -38,7 +38,7 @@ fun App() {
             Scaffold(
                 snackbarHost = { SnackbarHost(snackbarHostState) }
             ) {
-                SmapleNavHost()
+                SampleNavigation()
             }
         }
     }

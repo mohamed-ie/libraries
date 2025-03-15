@@ -1,4 +1,4 @@
-package com.mohammedie.project.di
+package io.github.mohamed_ie.sample.di
 
 import com.compose.utils.app_event.AppEventInvoker
 import com.compose.utils.app_event.DefaultAppEventInvoker
