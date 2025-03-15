@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = " io.github.mohamed_ie.uistate"
+    namespace = "io.github.mohamed_ie.uistate"
 }
 
 mavenPublishing {
