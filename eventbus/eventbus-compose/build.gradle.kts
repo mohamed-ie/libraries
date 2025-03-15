@@ -21,6 +21,12 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.test)
             }
         }
+
+        val desktopMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
     }
 }
 
