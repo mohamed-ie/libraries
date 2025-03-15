@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.compose.utils.app_event
+package io.github.mohamed_ie.eventbus
 
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Interface representing an event invoker used to emit and observe application-wide events.
+ * Interface representing an event bus used to emit and observe application-wide events.
  *
  * This interface is typically implemented in scenarios where events need to be broadcasted
  * and observed across different parts of an application, such as in a Compose-based project.
  */
-public interface AppEventInvoker {
+public interface EventBus {
 
     /**
      * A Flow of events that observers can collect to react to specific events.
@@ -36,7 +36,7 @@ public interface AppEventInvoker {
     public val event: Flow<Any>
 
     /**
-     * Sends a new event to the event stream.
+     * Sends a new event to the event bus.
      *
      * @param event The event object to be emitted. It can be any type, allowing flexibility
      *              in the types of events that can be sent.

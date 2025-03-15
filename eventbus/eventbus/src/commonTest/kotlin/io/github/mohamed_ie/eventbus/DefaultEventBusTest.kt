@@ -1,4 +1,4 @@
-package com.compose.utils.app_event
+package io.github.mohamed_ie.eventbus
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
@@ -10,15 +10,15 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-class DefaultAppEventInvokerTest {
-    private lateinit var subject: AppEventInvoker
+class DefaultEventBusTest {
+    private lateinit var subject: EventBus
     @OptIn(ExperimentalCoroutinesApi::class)
     private val testDispatcher = UnconfinedTestDispatcher()
     private val testScope = TestScope(testDispatcher)
 
     @BeforeTest
     fun setup() {
-        subject = DefaultAppEventInvoker(testScope)
+        subject = DefaultEventBus(testScope)
     }
 
     @Test

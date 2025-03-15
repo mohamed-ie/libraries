@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.compose.utils.app_event
+package io.github.mohamed_ie.eventbus
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

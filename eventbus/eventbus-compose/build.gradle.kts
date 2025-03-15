@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.mohamedie.kotlin.multiplatform.library)
+    alias(libs.plugins.mohamedie.kotlin.multiplatform.maven.publish)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose.multiplatform)
 }
@@ -10,6 +11,7 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(libs.kotlinx.coroutines.core)
+                api(projects.eventbus.eventbus)
             }
         }
 
@@ -19,29 +21,22 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.test)
             }
         }
-
-        val desktopMain by getting {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
     }
 }
 
 android {
-    namespace = "com.compose.utils.app_event"
+    namespace = "io.github.mohamed_ie.eventbus_compose"
 }
 
 mavenPublishing {
     coordinates(
-        artifactId = "compose-utils-app-event",
-        version = "0.0.2"
+        artifactId = "eventbus-compose",
+        version = "0.0.1"
     )
 
     pom {
-        name = "App Event"
-        description =
-            "The App Event Invoker library provides a mechanism to emit and observe application-wide events in a thread-safe and flexible manner. Designed for Kotlin Multiplatform projects, especially Compose-based applications, it facilitates event-driven communication between different parts of an app"
+        name = "EventBus Composse"
+        description = "The EventBus library provides a mechanism to emit and observe application-wide events in a thread-safe and flexible manner."
         inceptionYear = "2025"
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.compose.utils.app_event
+package io.github.mohamed_ie.eventbus
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 /**
- * Default implementation of [AppEventInvoker] that uses a [CoroutineScope] for managing event emissions.
+ * Default implementation of [EventBus] that uses a [CoroutineScope] for managing event emissions.
  *
  * This class provides a thread-safe way to emit and observe events using a [kotlinx.coroutines.flow.SharedFlow].
  * It can be used to broadcast events to multiple subscribers in a Compose-based application.
@@ -34,9 +34,9 @@ import kotlinx.coroutines.launch
  * @property coroutineScope The [CoroutineScope] used for launching coroutines to emit events.
  *                          Defaults to [MainScope].
  */
-public open class DefaultAppEventInvoker(
+public open class DefaultEventBus(
     private val coroutineScope: CoroutineScope = MainScope()
-) : AutoCloseable, AppEventInvoker {
+) : EventBus, AutoCloseable {
 
     /**
      * Internal mutable flow of events that can be emitted.
