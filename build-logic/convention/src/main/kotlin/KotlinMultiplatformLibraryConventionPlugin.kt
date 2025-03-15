@@ -1,6 +1,5 @@
 import com.build_logic.convention.configureKotlinAndroid
 import com.build_logic.convention.configureKotlinMultiplatform
-import com.build_logic.convention.configureMavenPublish
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -9,11 +8,9 @@ class KotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
         with(pluginManager) {
             apply("org.jetbrains.kotlin.multiplatform")
             apply("com.android.library")
-            apply("com.vanniktech.maven.publish")
         }
 
         configureKotlinMultiplatform()
         configureKotlinAndroid()
-        configureMavenPublish()
     }
 }

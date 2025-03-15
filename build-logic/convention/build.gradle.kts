@@ -15,5 +15,10 @@ gradlePlugin {
             id = "mohamedie.kotlin.multiplatform.library"
             implementationClass = "KotlinMultiplatformLibraryConventionPlugin"
         }
+
+        register("kotlin-multiplatform-maven-publis") {
+            id = "mohamedie.kotlin.multiplatform.maven.publish"
+            implementationClass = "KotlinMultiplatformMavenPublishConventionPlugin"
+        }
     }
 }
