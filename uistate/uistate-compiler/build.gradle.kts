@@ -10,7 +10,7 @@ dependencies {
 mavenPublishing {
     coordinates(
         artifactId = "uistate-compiler",
-        version = "0.0.1"
+        version = "0.0.2"
     )
 
     pom {
